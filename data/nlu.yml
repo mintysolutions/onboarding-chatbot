@@ -5,87 +5,102 @@ nlu:
   examples: |
     - hey
     - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - salut 
+    - bonjour 
+    - allons-y 
+    - bonsoir 
+    - bon après-midi
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - au revoir 
+    - à plus tard 
+    - bonne nuit 
+    - bonne journée
 
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
+    - oui
+    - o
+    - En effet
+    - bien sûr
+    - Ça a l'air bien
     - correct
+    - affirmatif
 
 - intent: deny
   examples: |
-    - no
+    - non
     - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - jamais
+    - Je ne pense pas
+    - je n'aime pas ça
+    - certainement pas
+    - pas vraiment
 
 - intent: mood_great
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - parfait
+    - génial
+    - Comme un roi
+    - formidable
+    - je me sens très bien
+    - Je suis génial
+    - Je vais sauver le monde
+    - super content
+    - extrêmement bien
+    - tellement parfait
+    - tellement bien
+    - tellement parfait
 
 - intent: mood_unhappy
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - ma journée a été horrible
+    - Je suis triste
+    - je ne me sens pas très bien
+    - je suis déçu
+    - hyper triste
+    - Je suis tellement triste
+    - triste
+    - très triste
+    - malheureux
+    - pas bon
+    - pas très bien
+    - extrêmement triste
+    - si triste
 
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - Etes-vous un robot
+    - Êtes-vous un être humain
+    - est-ce que je parle à un bot 
+    - Est-ce que je parle à un humain 
+
+- intent: ask_guidance
+  examples: /
+    - Je suis un peu perdu
+    - Je ne sais pas vraiment par où commencer
+    - Comment ca se passe
+    - Qu'est ce que je dois faire
+
+- intent: introduce_self
+  examples: /
+    - je m'appelle {name}
+    - Mon nom est {name}
+    - je me nomme {name}
+    - je suis {name}
+
+- intent: ask_resources
+  examples: /
+    - Où je peux trouver la documentation des projets en cours
+    - Je voudrais me former
+    - il y'a t'il des ressources disponibles pour m'améliorer
+    - je veux m'améliorer
+    - je souhaite monter en compétence
+    - je voudrais m'informer sur les projets de l'entreprise
+
+- intent: ask_policies
+  examples: /
+    - Quelles sont les règles à suivre ici
+    - Quelles sont les politiques de l'entreprise
+    - Je voudrais lire le règlement intérieur

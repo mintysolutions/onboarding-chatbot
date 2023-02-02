@@ -5,29 +5,63 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
+  - introduce_self
+  - ask_guidance
+  - ask_resources
+  - ask_policies
   - bot_challenge
+  - get_started
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Bonjour ! comment allez vous?"
+  - text: "Bonjour ! comment se passe votre journée?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_welcome:
+  - text: "Bienvenue dans l'entreprise !"
+  - text: "Je suis heureux de vous accueillir dans notre entreprise"
+  - text: "Bienvenue dans notre entreprise !"
+  - text: "Nous sommes heureux de vous avoir à bord"
+
+  utter_auth:
+  - text: "Quel est votre nom?"
+  - text: "Comment vous appelez vous?"
+  - text: "Pourriez vous me donner votre nom s'il vous plait?"
+
+  utter_ask_info:
+  - text: "Pour commencer, j'aurais besoin de quelques informations"
+
+  utter_introduce_self:
+  - text: "Ravi de vous connaître {name}"
+  - text: "Enchanté, {name}"
+  - text: "C'est un plaisir, {name}"
+
+  utter_ask_policies:
+  - text: "Voici un lien vers notre sharepoint où vous pourrez trouver notre règlement intérieur"
+
+  utter_ask_guidance:
+  - text: "Ne vous inquiétez pas, je vais vous guider tout au long de votre processus d'intégration"
+
+  utter_ask_resources:
+  - text: "Vous pourrez trouvez sur notre sharepoint toutes les informations dont vous avez besoin. Des livres pour monter en compétence et l'accès au compte udemy de la boîte."
 
   utter_did_that_help:
-  - text: "Did that help you?"
+  - text: "Vous a t'il été utile?"
 
   utter_happy:
-  - text: "Great, carry on!"
+  - text: "Super, ravi de vous avoir aider!"
+
+  utter_sad:
+  - text: "J'en suis navré, je prends note!"
 
   utter_goodbye:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "Je suis un bot, fabriqué avec Rasa."
+
+  utter_get_started:
+  - text: "Parfait, je suis là pour vous!"
 
 session_config:
   session_expiration_time: 60
