@@ -11,3 +11,14 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Say I will guide you anytime the user asks for help
+  steps:
+  - intent: ask_guidance
+  - action: utter_ask_guidance
+  - action: utter_ask_info
+
+- rule: Start the process when the user asks for it
+  steps:
+  - intent: get_started
+  - action: utter_ask_info
