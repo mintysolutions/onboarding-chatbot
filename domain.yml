@@ -1,68 +1,162 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - introduce_self
-  - ask_guidance
-  - ask_resources
-  - ask_policies
-  - bot_challenge
-  - get_started
-
+- affirm
+- ask_guidance
+- ask_policies
+- ask_resources
+- bot_challenge
+- deny
+- get_started
+- give_country
+- give_emergency_contact_name
+- give_emergency_contact_number
+- give_first_name
+- give_last_name
+- give_phone_number
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+entities:
+- first_name
+- last_name
+- country
+- emergency_contact_name
+- emergency_contact_number
+- phone_number
+- id_document_type
+- id_document_number
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: first_name
+      intent: give_first_name
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: last_name
+      intent: give_last_name
+  phone_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: phone_number
+      intent: give_phone_number
+  country:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: country
+      intent: give_country
+  emergency_contact_first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_contact_first_name
+      intent: give_emergency_contact_first_name
+      conditions:
+      - active_loop: contact_form
+        requested_slot: emergency_contact_first_name
+  emergency_contact_last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_contact_last_name
+      intent: give_emergency_contact_last_name
+      conditions:
+      - active_loop: contact_form
+        requested_slot: emergency_contact_last_name
+  emergency_contact_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_contact_number
+      intent: give_emergency_contact_number
+      conditions:
+      - active_loop: contact_form
+        requested_slot: emergency_contact_number
 responses:
   utter_greet:
-  - text: "Bonjour ! comment allez vous?"
-  - text: "Bonjour ! comment se passe votre journée?"
-
+  - text: Bonjour ! comment allez vous?
+  - text: Bonjour ! comment se passe votre journée?
   utter_welcome:
-  - text: "Bienvenue dans l'entreprise !"
-  - text: "Je suis heureux de vous accueillir dans notre entreprise"
-  - text: "Bienvenue dans notre entreprise !"
-  - text: "Nous sommes heureux de vous avoir à bord"
-
+  - text: Bienvenue dans l'entreprise !
+  - text: Je suis heureux de vous accueillir dans notre entreprise
+  - text: Bienvenue dans notre entreprise !
+  - text: Nous sommes heureux de vous avoir à bord
   utter_auth:
-  - text: "Quel est votre nom?"
-  - text: "Comment vous appelez vous?"
-  - text: "Pourriez vous me donner votre nom s'il vous plait?"
-
+  - text: Quel est votre nom?
+  - text: Comment vous appelez vous?
+  - text: Pourriez vous me donner votre nom s'il vous plait?
   utter_ask_info:
-  - text: "Pour commencer, j'aurais besoin de quelques informations"
-
-  utter_introduce_self:
-  - text: "Ravi de vous connaître {name}"
-  - text: "Enchanté, {name}"
-  - text: "C'est un plaisir, {name}"
-
+  - text: Pour commencer, j'aurais besoin de quelques informations
+  utter_ask_country:
+  - text: Votre pays de residence s'il vous plaît
+  utter_ask_phone_number:
+  - text: Votre numero de téléphone s'il vous plaît
+  utter_ask_emergency_contact_name:
+  - text: Maintenant le nom de la personne à contacter en cas d'urgence
+  utter_ask_emergency_contact_number:
+  - text: Quel est le numéro de cette personne
+  utter_submit:
+  - text: Parfait, passons à la configuration de vos outils
+  utter_ask_full_name:
+  - text: Ravi de vous connaître {full_name}
+  - text: Enchanté, {full_name}
+  - text: C'est un plaisir, {full_name}
   utter_ask_policies:
-  - text: "Voici un lien vers notre sharepoint où vous pourrez trouver notre règlement intérieur"
-
+  - text: Voici un lien vers notre sharepoint où vous pourrez trouver notre règlement intérieur
   utter_ask_guidance:
-  - text: "Ne vous inquiétez pas, je vais vous guider tout au long de votre processus d'intégration"
-
+  - text: Ne vous inquiétez pas, je vais vous guider tout au long de votre processus d'intégration
   utter_ask_resources:
-  - text: "Vous pourrez trouvez sur notre sharepoint toutes les informations dont vous avez besoin. Des livres pour monter en compétence et l'accès au compte udemy de la boîte."
-
+  - text: Vous pourrez trouvez sur notre sharepoint toutes les informations dont vous avez besoin. Des livres pour monter en compétence et l'accès au compte udemy de la boîte.
   utter_did_that_help:
-  - text: "Vous a t'il été utile?"
-
+  - text: Vous a t'il été utile?
   utter_happy:
-  - text: "Super, ravi de vous avoir aider!"
-
+  - text: Super, ravi de vous avoir aider!
   utter_sad:
-  - text: "J'en suis navré, je prends note!"
-
+  - text: J'en suis navré, je prends note!
+  utter_mood_great:
+  - text: Super
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-  - text: "Je suis un bot, fabriqué avec Rasa."
-
+  - text: Oui je suis un bot, conçu avec Rasa.
   utter_get_started:
-  - text: "Parfait, je suis là pour vous!"
-
+  - text: Parfait, je suis là pour vous!
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+actions:
+- action_email_setup
+- utter_ask_full_name
+- utter_ask_guidance
+- utter_ask_info
+- utter_ask_policies
+- utter_ask_resources
+- utter_auth
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_sad
+- utter_submit
+- utter_welcome
+forms:
+  contact_form:
+    required_slots:
+    - full_name
+    - phone_number
+    - country
+    - emergency_contact_name
+    - emergency_contact_number
