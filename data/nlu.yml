@@ -1,23 +1,21 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
     - hey
     - hello
-    - salut 
-    - bonjour 
-    - allons-y 
-    - bonsoir 
+    - salut
+    - bonjour
+    - allons-y
+    - bonsoir
     - bon après-midi
-
 - intent: goodbye
   examples: |
-    - au revoir 
-    - à plus tard 
-    - bonne nuit 
+    - bye
+    - au revoir
+    - à plus tard
+    - bonne nuit
     - bonne journée
-
 - intent: affirm
   examples: |
     - oui
@@ -27,7 +25,7 @@ nlu:
     - Ça a l'air bien
     - correct
     - affirmatif
-
+    - en effet
 - intent: deny
   examples: |
     - non
@@ -37,22 +35,17 @@ nlu:
     - je n'aime pas ça
     - certainement pas
     - pas vraiment
-
 - intent: mood_great
   examples: |
     - parfait
     - génial
     - Comme un roi
     - formidable
-    - je me sens très bien
-    - Je suis génial
-    - Je vais sauver le monde
+    - je me sens bien
     - super content
     - extrêmement bien
     - tellement parfait
     - tellement bien
-    - tellement parfait
-
 - intent: mood_unhappy
   examples: |
     - ma journée a été horrible
@@ -68,39 +61,99 @@ nlu:
     - pas très bien
     - extrêmement triste
     - si triste
-
 - intent: bot_challenge
   examples: |
     - Etes-vous un robot
     - Êtes-vous un être humain
-    - est-ce que je parle à un bot 
-    - Est-ce que je parle à un humain 
-
+    - est-ce que je parle à un bot
+    - Est-ce que je parle à un humain
 - intent: ask_guidance
-  examples: /
+  examples: |
     - Je suis un peu perdu
     - Je ne sais pas vraiment par où commencer
     - Comment ca se passe
     - Qu'est ce que je dois faire
-
-- intent: introduce_self
-  examples: /
-    - je m'appelle {name}
-    - Mon nom est {name}
-    - je me nomme {name}
-    - je suis {name}
-
+    - je suis un peu perdu
+- intent: give_first_name
+  examples: |
+    - je m'appelle [Mouhamed](first_name)
+    - Mon prenom est [Jules](first_name)
+    - je me nomme [Moustapha](first_name)
+    - je suis [Sy](first_name)
+    - appelle moi [Bakhoum](first_name)
+- intent: give_last_name
+  examples: |
+    - je m'appelle [Seck](last_name)
+    - Mon nom est [Diop](last_name)
+    - je me nomme [Fall](last_name)
+    - je suis [Kane](last_name)
+    - appelle moi [Bakhoum](last_name)
 - intent: ask_resources
-  examples: /
-    - Où je peux trouver la documentation des projets en cours
+  examples: |
+    - Où je peux trouver la documentation
     - Je voudrais me former
     - il y'a t'il des ressources disponibles pour m'améliorer
     - je veux m'améliorer
     - je souhaite monter en compétence
     - je voudrais m'informer sur les projets de l'entreprise
-
+    - je voudrais me former
 - intent: ask_policies
-  examples: /
+  examples: |
     - Quelles sont les règles à suivre ici
     - Quelles sont les politiques de l'entreprise
     - Je voudrais lire le règlement intérieur
+    - je voudrais lire le reglement interieur
+- intent: give_phone_number
+  examples: |
+    - Mon numéro est [781737927](phone_number)
+    - c'est [781737927](phone_number)
+    - me joindre au [781737927](phone_number)
+    - joignez moi au [781737927](phone_number)
+    - mon contact est [781737927](phone_number)
+    - contactez moi au [781737927](phone_number)
+    - appelez moi au [781737927](phone_number)
+    - Il s'agit du [781737927](phone_number)
+- intent: give_emergency_contact_name
+  examples: |
+    - Il'appelle [Mouhamed](emergency_contact_name)
+    - Son nom est [Jules](emergency_contact_name)
+    - Il se nomme [Moustapha Seck](emergency_contact_name)
+    - c'est [Ali](emergency_contact_name)
+    - en cas d'urgence contactez [Bakhoum](emergency_contact_name)
+    - Il s'agit de [Bakhoum](emergency_contact_name)
+- intent: give_emergency_contact_number
+  examples: |
+    - Son numéro est [781737927](emergency_contact_number)
+    - c'est [781737927](emergency_contact_number)
+    - Le joindre au [781737927](emergency_contact_number)
+    - joignez le [781737927](emergency_contact_number)
+    - contactez [781737927](emergency_contact_number)
+    - appelez au [781737927](emergency_contact_number)
+- intent: give_country
+  examples: |
+    - mon pays de residence est le [Sénégal](country)
+    - je reside au [Sénégal](country)
+    - je suis au [Sénégal](country)
+    - j'habite au [Sénégal](country)
+    - c'est le [Sénégal](country)
+    - Au [Sénégal](country)
+    - En [Allemagne](country)
+    - Il s'agit du [Sénégal](country)
+# - intent: give_id_document_type
+#   examples: |
+#     - c'est une [carte d'identité](id_document_type)
+#     - c'est une [carte d'identification nationale](id_document_type)
+#     - c'est une [cni](id_document_type)
+#     - c'est un [passport](id_document_type)
+#     - j'ai une [carte d'identité](id_document_type)
+#     - j'ai une [carte d'identification nationale](id_document_type)
+#     - j'ai une [cni](id_document_type)
+#     - j'ai un [passport](id_document_type)
+#     - je possède une [carte d'identité](id_document_type)
+#     - je possède une [carte d'identification nationale](id_document_type)
+#     - je possède une [cni](id_document_type)
+#     - je possède un [passport](id_document_type)
+# - intent: give_id_document_number
+#   examples: |
+#     - le numéro est [781737343424927](id_document_number)
+#     - c'est le [781342342737927](id_document_number)
