@@ -1,6 +1,10 @@
 version: "3.1"
 
 rules:
+- rule: greet the user when he does
+  steps:
+  - intent: greet
+  - action: utter_greet
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -22,3 +26,22 @@ rules:
   steps:
   - intent: get_started
   - action: utter_ask_info
+
+- rule: Activate contact former
+  steps:
+  - intent: give_full_name
+  - action: utter_welcome
+  - action: utter_ask_info
+  - action: contact_form
+  - active_loop: contact_form
+
+- rule: Submit Contact form
+  condition:
+  - active_loop: contact_form
+  steps:
+  - action: contact_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_full_name
+  - action: utter_submit
