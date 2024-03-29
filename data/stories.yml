@@ -2,22 +2,20 @@ version: "3.1"
 
 stories:
 
-- story: greet and welcome
+- story: greet the user
   steps:
+  - intent: greet
   - action: utter_greet
-  - or:
-    - intent: greet
-    - intent: mood_great
+  - intent: mood_great
   - action: utter_auth
-  - intent: introduce_self
-  - action: utter_welcome
 
 - story: ask policies
   steps:
-  - intent: ask_policy
-  - action: utter_ask_policy
+  - intent: ask_policies
+  - action: utter_ask_policies
   - action: utter_did_that_help
   - checkpoint: check_feedback
+
 - story: ask resources
   steps:
   - intent: ask_resources
@@ -26,21 +24,77 @@ stories:
   - checkpoint: check_feedback
 
 - story: happy end
+  steps:
   - checkpoint: check_feedback
   - intent: affirm
   - action: utter_happy
 
 - story: sad end
+  steps:
   - checkpoint: check_feedback
   - intent: deny
   - action: utter_sad
 
-- story: sad path 2
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_resources
+  - action: utter_ask_resources
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+  - intent: ask_policies
+  - action: utter_ask_policies
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sad
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: mood_great
+  - action: utter_auth
+  - intent: give_full_name
+    entities:
+    - full_name: Mouhamed
+  - slot_was_set:
+    - full_name: Mouhamed
+  - action: utter_welcome
+  - action: utter_ask_info
+  - action: contact_form
+  - active_loop: contact_form
+  - slot_was_set:
+    - full_name: Mouhamed
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: '781737927'
+  - slot_was_set:
+    - requested_slot: country
+  - slot_was_set:
+    - country: Sénégal
+  - slot_was_set:
+    - requested_slot: emergency_contact_name
+  - slot_was_set:
+    - emergency_contact_name: Jules
+  - slot_was_set:
+    - requested_slot: emergency_contact_number
+  - slot_was_set:
+    - emergency_contact_number: '800123456'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_full_name
+  - action: utter_submit
